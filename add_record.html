@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Record</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Add Record</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/logout">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <section id="add-record">
+            <h2>Add New Energy Consumption Record</h2>
+            <form action="{{ url_for('add_record') }}" method="POST">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+                <label for="consumption">Consumption (kWh):</label>
+                <input type="number" step="0.01" id="consumption" name="consumption" required>
+                <button type="submit">Add Record</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Energy Consumption Tracker</p>
+    </footer>
+</body>
+</html>
