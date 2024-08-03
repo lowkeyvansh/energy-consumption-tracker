@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Consumption Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Energy Consumption Tracker</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/add_record">Add Record</a>
+            <a href="/logout">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <section id="records">
+            <h2>Your Energy Consumption Records</h2>
+            <div class="record-list">
+                {% for record in records %}
+                <div class="record">
+                    <p>Date: {{ record.date.strftime('%Y-%m-%d') }}</p>
+                    <p>Consumption: {{ record.consumption }} kWh</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Energy Consumption Tracker</p>
+    </footer>
+</body>
+</html>
